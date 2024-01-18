@@ -7,20 +7,20 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 
 def main():
-    # Load the Boston Housing Data from sklearn's datasets.
-    boston = datasets.load_boston()
+    # Load the California Housing Data from sklearn's datasets.
+    housing = datasets.fetch_california_housing()
 
     # Turn the dataset into a DataFrame for easier manipulation.
-    data = pd.DataFrame(boston.data, columns=boston.feature_names)
-    data["MEDV"] = boston.target
+    data = pd.DataFrame(housing.data, columns=housing.feature_names)
+    data["MedHouseVal"] = housing.target
 
     # Explore the dataset and look at the first few rows of the DataFrame to understand the data.
     print(data.head())
 
     # Identify the feature variable(s) and target variable.
-    # In this case, we might choose "RM" (average number of rooms per dwelling) as feature and "MEDV" as target.
-    X = pd.DataFrame(np.c_[data["RM"]], columns=["RM"])
-    Y = data["MEDV"]
+    # In this case, we choose "AveRooms" (average number of rooms per dwelling) as feature and "MedHouseVal" as target.
+    X = pd.DataFrame(np.c_[data["AveRooms"]], columns=["AveRooms"])
+    Y = data["MedHouseVal"]
 
     # Split our data into training and testing subsets.
     X_train, X_test, Y_train, Y_test = train_test_split(
