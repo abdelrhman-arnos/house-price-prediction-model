@@ -34,7 +34,7 @@ def main():
     # Evaluate the model using the test data.
     Y_pred = model.predict(X_test)
 
-    # Create metrics (like Mean Squared Error) to assess your model's performance.
+    # Create metrics (like Mean Squared Error) to assess our model's performance.
     mse = metrics.mean_squared_error(Y_test, Y_pred)
     print("Mean Squared Error: ", mse)
 
@@ -45,6 +45,6 @@ def main():
     plt.title("Actual prices vs Predicted prices")
 
 
-# This is the code that runs if your file is called from the terminal.
+# This is the code that runs if our file is called from the terminal.
 if __name__ == "__main__":
     main()
